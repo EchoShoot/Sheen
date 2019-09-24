@@ -107,7 +107,7 @@ Learn More
 <p align="right"> It's said that 256 colors can be valid in the terminal<br>but maybe invalid in the IDE</p>
 
 ### How to config Multicolored logging
-> Vivid has been build-in scheme, which can prints different colored logs based on log level:
+> Sheen has been build-in scheme, which can prints different colored logs based on log level:
 
 <div align=center><img src="https://raw.githubusercontent.com/EchoShoot/Sheen/master/docs/ColoredHandler.png"></div>
 
@@ -141,7 +141,7 @@ logger.critical('critical')
 <br> <b>without affecting the logging output speed</b> <p>
 
 ### How to get the best performance
-> Vivid was born for convenience, when you want the fastest, there is a way.
+> Sheen was born for convenience, when you want the fastest, there is a way.
 
 ```{.sourceCode .python}
 >>> from sheen import Str, Color
