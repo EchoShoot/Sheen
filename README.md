@@ -1,6 +1,7 @@
 Sheen:
 ==========================
-
+![PyPI](https://img.shields.io/pypi/v/sheen)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/sheen)
 
 **Pythonic** cross-platform colored terminal text **[support 16/256 colors]**
 > Let color be your _new dimension_ to integrate _more imagination_.
