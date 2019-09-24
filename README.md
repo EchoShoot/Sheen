@@ -5,7 +5,7 @@ Sheen:
 **Pythonic** cross-platform colored terminal text **[support 16/256 colors]**
 > Let color be your _new dimension_ to integrate _more imagination_.
 
-<div align=center><img src="./docs/Intro.gif"></div>
+<div align=center><img src="https://raw.githubusercontent.com/EchoShoot/Sheen/master/docs/Intro.gif"></div>
 
 Quick Learn
 ---
@@ -73,7 +73,7 @@ $ python -m sheen
 
 **If it's successfully installed, it will be as shown below.**
 
-<div align=center><img src="./docs/Tutor.gif"></div>
+<div align=center><img src="https://raw.githubusercontent.com/EchoShoot/Sheen/master/docs/Tutor.gif"></div>
 
 <p align="right">It's a simple way to get tutorial, you don't need to come here every time
 <br>when you forget the usage of sheen</p>
@@ -102,14 +102,14 @@ Learn More
 >>> text
 ``` 
 
-<div align=center><img src="./docs/Paletee.png"></div>
+<div align=center><img src="https://raw.githubusercontent.com/EchoShoot/Sheen/master/docs/Paletee.png"></div>
 
 <p align="right"> It's said that 256 colors can be valid in the terminal<br>but maybe invalid in the IDE</p>
 
 ### How to config Multicolored logging
 > Vivid has been build-in scheme, which can prints different colored logs based on log level:
 
-<div align=center><img src="./docs/ColoredHandler.png"></div>
+<div align=center><img src="https://raw.githubusercontent.com/EchoShoot/Sheen/master/docs/ColoredHandler.png"></div>
 
 <p align="right"> As you can see, sheen <b>only takes 5 lines</b> to complete
 <br> the configuration of the Multicolored logging</p>
@@ -150,7 +150,7 @@ logger.critical('critical')
 >>>
 ``` 
 
-<div align=center><img src="./docs/BestPerformance.png"></div>
+<div align=center><img src="https://raw.githubusercontent.com/EchoShoot/Sheen/master/docs/BestPerformance.png"></div>
 
 <p align='right'> Don't forget to 'import sheen', It's necessary on windows.
 <br> -- Windows 10 is default closed <i>ANSI Escape Code<i> </p>

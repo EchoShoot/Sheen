@@ -8,7 +8,7 @@ except ImportError:
 
 setup(
     name='sheen',
-    version='0.0.1',
+    version='0.1.0',
     description='Pythonic cross-platform colored terminal text [support 16/256 colors]',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -21,7 +21,7 @@ setup(
     zip_safe=False,
     python_requires='>=3.5',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'Natural Language :: English',
         'License :: OSI Approved :: Apache Software License',
