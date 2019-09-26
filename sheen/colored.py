@@ -64,10 +64,7 @@ class ColoredHandler(StreamHandler):
         if fmt is None:
             fmt = _defaultFormatter
         return fmt.format(record)
-
-    def setFormatter(self, fmt):
-        raise ValueError("Did you mean 'setFormatters'? (There is a 's' at the end)")
-
+        
     def setFormatters(self, fmts):
         """
             Design colored logger for yourself to integrate more imagination.
