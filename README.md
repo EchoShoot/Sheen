@@ -124,7 +124,7 @@ logger.setLevel(logging.DEBUG)
 
 
 handle = ColoredHandler()
-handle.setFormatters({
+handle.setFormatter({
     logging.DEBUG: logging.Formatter(fmt=str(Str.blue('%(asctime)s - %(levelname)s | %(message)s')), datefmt='%Y-%m-%d'),
     logging.INFO: Str.magenta('%(asctime)s - %(levelname)s | %(message)s'),
 })

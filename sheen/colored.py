@@ -10,6 +10,34 @@ import logging
 from sheen.color import Str
 import sys
 from logging import StreamHandler, _addHandlerRef, _checkLevel, NOTSET, Formatter, Handler, getLevelName
+from functools import singledispatch, update_wrapper
+from collections.abc import MutableMapping
+
+
+# 指向性单分派函数
+def directivitysingledispatch(target=0):
+    """ more powerful than singledispatch, it can aimed which param is your want """
+
+    def ooo(func):
+        dispatcher = singledispatch(func)
+
+        def wrapper(*args, **kw):
+            if isinstance(target, int):
+                obj_cls = args[target]
+                return dispatcher.dispatch(obj_cls.__class__)(*args, **kw)
+            elif isinstance(target, str):
+                kw.update(dict(zip(func.__code__.co_varnames, args)))
+                obj_cls = kw[target]
+                return dispatcher.dispatch(obj_cls.__class__)(**kw)
+            else:
+                raise TypeError("the param 'target' only support the type of 'int' or 'str'")
+
+        wrapper.register = dispatcher.register
+        update_wrapper(wrapper, func)
+        return wrapper
+
+    return ooo
+
 
 # 公开给外部的函数 (interface)
 __all__ = (
@@ -73,7 +101,15 @@ class ColoredHandler(Handler):
             fmt = _defaultFormatter
         return fmt.format(record)
 
+    @directivitysingledispatch(1)
     def setFormatter(self, fmt):
+        """
+        Set the formatter for this handler.
+        """
+        raise TypeError(f"Not support '{type(fmt)}' yet, only support 'Formatter' or 'Dict'")
+
+    @setFormatter.register(Formatter)
+    def _(self, fmt):
         """
         Set the formatter for this handler.
         """
@@ -85,6 +121,7 @@ class ColoredHandler(Handler):
             logging.CRITICAL: Formatter(fmt=str(Str.RED(fmt._fmt)), datefmt=fmt.datefmt),
         }
 
+    @setFormatter.register(MutableMapping)
     def setFormatters(self, fmts):
         """
             Design colored logger for yourself to integrate more imagination.
@@ -181,8 +218,8 @@ if __name__ == '__main__':
     logger.setLevel(logging.DEBUG)
 
     handle = ColoredHandler()
-#    handle.setFormatter(Formatter(fmt='%(asctime)s - %(levelname)s | %(message)s'))
-    handle.setFormatters({
+    # handle.setFormatter(Formatter(fmt='%(asctime)s - %(levelname)s | %(message)s'))
+    handle.setFormatter({
         logging.DEBUG: Formatter(fmt=str(Str.blue('%(asctime)s - %(levelname)s | %(message)s')), datefmt=FMT_DATE),
         logging.INFO: Str.magenta('%(asctime)s - %(levelname)s | %(message)s'),
     })
